@@ -58,7 +58,7 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-mockito2</artifactId>
-            <version>${powermock-api-mockito2.version}</version>
+            <version>${powermock-api-mockito2.version} </version>
             <scope>test</scope>
         </dependency>
 
