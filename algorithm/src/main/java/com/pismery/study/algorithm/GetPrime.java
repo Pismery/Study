@@ -10,12 +10,36 @@ import java.util.List;
 public class GetPrime {
 
     public static void main(String[] args) {
-        getPrime(10);
+        System.out.println(getPrime(100));
+        System.out.println(getPrime2(100));
+        System.out.println(getPrimeBy6N_way1(7));
+        System.out.println(getPrimeBy6N_way2(7));
+
+        System.out.println(getPrimeBy6N_way1(6));
+        System.out.println(getPrimeBy6N_way2(6));
+
+        System.out.println(getPrimeBy6N_way1(5));
+        System.out.println(getPrimeBy6N_way2(5));
     }
 
     public static List<Integer> getPrime(int maxNum) {
         List<Integer> result = new ArrayList<>();
         for (int i = 2; i <= maxNum; i++) {
+            if (isPrime(i))
+                result.add(i);
+        }
+        return result;
+    }
+
+    public static List<Integer> getPrime2(int maxNum) {
+        List<Integer> result = new ArrayList<>();
+        if (maxNum < 2) {
+            return result;
+        }
+
+        result.add(2);
+
+        for (int i = 3; i <= maxNum; i += 2) {
             if (isPrime(i))
                 result.add(i);
         }
@@ -31,7 +55,7 @@ public class GetPrime {
      * @param maxNum
      * @return
      */
-    public static List<Integer> getPrimeBy6N_1(int maxNum) {
+    public static List<Integer> getPrimeBy6N_way1(int maxNum) {
         ArrayList<Integer> result = new ArrayList<>();
         if (maxNum >= 2)
             result.add(2);
@@ -45,6 +69,23 @@ public class GetPrime {
             if (6 * i + 1 <= maxNum && isPrime2(6 * i + 1))
                 result.add(6 * i + 1);
             i++;
+        }
+
+        return result;
+    }
+
+    public static List<Integer> getPrimeBy6N_way2(int maxNum) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if (maxNum >= 2)
+            result.add(2);
+        if (maxNum >= 3)
+            result.add(3);
+
+        for (int j = 0; j - 1 <= maxNum || j + 1 <= maxNum; j += 6) {
+            if (j - 1 <= maxNum && isPrime2(j - 1))
+                result.add(j - 1);
+            if ( j + 1 <= maxNum && isPrime2(j + 1))
+                result.add(j + 1);
         }
 
         return result;
@@ -71,7 +112,20 @@ public class GetPrime {
         if (num < 2)
             return false;
         //注意 j<= Math.sqrt(num) 必须有=号  num = 4 9 16
-        for (int j = 2; j <= Math.sqrt(num); j++) {
+        double sqrt = Math.sqrt(num);
+        for (int j = 2; j <= sqrt; j++) {
+            if (num % j == 0 && num != j) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isPrime3(int num) {
+        if(num < 2) {
+            return false;
+        }
+        for (int j = 2; j <= num; j++) {
             if (num % j == 0 && num != j) {
                 return false;
             }
