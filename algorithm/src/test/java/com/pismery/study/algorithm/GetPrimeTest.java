@@ -1,6 +1,5 @@
 package com.pismery.study.algorithm;
 
-import com.pismery.study.algorithm.GetPrime;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -54,9 +53,9 @@ public class GetPrimeTest {
         expect_10.add(5);
         expect_10.add(7);
 
-        assertEquals(expect_2, GetPrime.getPrimeBy6N_1(4));
-        assertEquals(expect_7, GetPrime.getPrimeBy6N_1(7));
-        assertEquals(expect_10, GetPrime.getPrimeBy6N_1(10));
+        assertEquals(expect_2, GetPrime.getPrimeBy6N_way1(4));
+        assertEquals(expect_7, GetPrime.getPrimeBy6N_way1(7));
+        assertEquals(expect_10, GetPrime.getPrimeBy6N_way1(10));
     }
 
     @Test

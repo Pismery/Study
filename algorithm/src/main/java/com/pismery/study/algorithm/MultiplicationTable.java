@@ -7,7 +7,7 @@ package com.pismery.study.algorithm;
 public class MultiplicationTable {
 
     public static void main(String[] args) {
-        printTable(20);
+        printTable(9);
     }
 
 
@@ -19,7 +19,7 @@ public class MultiplicationTable {
 
     public static void printRow(int base, int colNum) {
         for (int i = 0; i < colNum; i++) {
-            System.out.printf("%4d", base * (i + 1));
+            System.out.printf("%3d", base * (i + 1));
         }
         System.out.println();
     }
