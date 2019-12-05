@@ -24,7 +24,7 @@ public class ExchangeUtils {
     }
 
     /**
-     * nomal exchange medthod
+     * nomal exchange method
      *
      * @param sources
      * @param indexX

@@ -7,7 +7,7 @@ public class RandomUtils {
 
     public static int randomInt(int minValue, int maxValue) {
         if (maxValue < minValue) {
-            throw new RuntimeException("maxValue < minValue");
+            throw new IllegalArgumentException("maxValue < minValue");
         }
         if (maxValue == minValue) {
             return minValue;
@@ -26,7 +26,7 @@ public class RandomUtils {
     public static int[] randomArrayNoRepeat(int minValue, int maxValue, int size) {
         int sourceSize = maxValue - minValue;
         if (sourceSize < size) { //size过大
-            throw new RuntimeException("size is bigger than the range size");
+            throw new IllegalArgumentException("size is bigger than the range size");
         }
         //生成[minValue,maxValue]的数组
         int[] source = new int[sourceSize];
@@ -48,7 +48,7 @@ public class RandomUtils {
 
     public static int[] randomArrayNearlySorted(int size, int changeTimes) {
         if ( size <= 0 || changeTimes < 0) {
-            throw new RuntimeException("paramter is illegal");
+            throw new IllegalArgumentException("parameter is illegal");
         }
 
         int[] result = new int[size];
