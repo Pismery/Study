@@ -17,15 +17,6 @@ public class RandomUtilsTest {
     public final ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void a() {
-        //Given
-        RandomUtils.randomInt(2,1);
-        //When
-        
-        //Then
-    }
-    
-    @Test
     public void randomInt_Equals() {
         assertEquals(1, RandomUtils.randomInt(1, 1));
     }
