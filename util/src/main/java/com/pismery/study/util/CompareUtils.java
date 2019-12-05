@@ -2,10 +2,7 @@ package com.pismery.study.util;
 
 import org.springframework.util.CollectionUtils;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 public class CompareUtils {
     /**
@@ -22,19 +19,15 @@ public class CompareUtils {
         if (CollectionUtils.isEmpty(list1) && CollectionUtils.isEmpty(list2)) {
             return true;
         }
-
+        
         // 两个list元素个数不相同
         if (list1.size() != list2.size()) {
             return false;
         }
-
+        
         // 两个list元素个数已经相同，再比较两者内容
         // 采用这种可以忽略list中的元素的顺序
         // 涉及到对象的比较是否相同时，确保实现了equals()方法
-        if (!list1.containsAll(list2)) {
-            return false;
-        }
-
-        return true;
+        return list1.containsAll(list2);
     }
 }
