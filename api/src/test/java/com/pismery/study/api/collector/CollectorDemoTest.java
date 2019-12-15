@@ -82,7 +82,7 @@ public class CollectorDemoTest {
     }
 
     @Test
-    public void joinTite() {
+    public void joinTitle() {
         assertThat(CollectorDemo.joinTite(taskList)).isEqualTo("[read,write,read,write,read,read]");
     }
 

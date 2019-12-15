@@ -16,15 +16,14 @@ import java.util.stream.Collectors;
 public class CollectorDemo {
 
     public static List<Task> collectToList(List<Task> list) {
-        return list.stream().collect(Collectors.toList());
+        return new ArrayList<>(list);
     }
 
     public static Set<Task> collectToSet(List<Task> list) {
-        return list.stream().collect(Collectors.toSet());
+        return new HashSet<>(list);
     }
 
     public static HashMap<String, Task> collectToMap(List<Task> list) {
-//        return list.stream().collect(Collectors.toMap(Task::getTitle, task -> task));
         return list.stream().collect(Collectors.toMap(Task::getTitle, Function.identity(), (t1, t2) -> t2, HashMap::new));
     }
 
@@ -37,11 +36,11 @@ public class CollectorDemo {
     }
 
     public static LinkedHashSet<Task> collectToLinkedHashSet(List<Task> list) {
-        return list.stream().collect(Collectors.toCollection(LinkedHashSet::new));
+        return new LinkedHashSet<>(list);
     }
 
     public static Map<TaskType, List<Task>> groupByTaskType(List<Task> list) {
-        return list.stream().collect(Collectors.groupingBy(task -> task.getType()));
+        return list.stream().collect(Collectors.groupingBy(Task::getType));
     }
 
     public static Map<Boolean, List<Task>> partitionByTaskType(List<Task> list) {
@@ -73,7 +72,7 @@ public class CollectorDemo {
         log.debug("integer list (IntSummaryStatistics) getMin: " + collect.getMin()); //8
         log.debug("integer list (IntSummaryStatistics) getSum: " + collect.getSum()); //1+2+..+8 = 36
         log.debug("integer list (IntSummaryStatistics) getCount: " + collect.getCount()); //8
-        log.debug("integer list (Collectors) counting: " + integerList.stream().collect(Collectors.counting())); //8
+        log.debug("integer list (Collectors) counting: " + (Long) integerList.stream().count()); //8
     }
 
 
