@@ -31,7 +31,7 @@
         <dom4j_verson>2.1.1</dom4j_verson>
         <junit_verson>4.12</junit_verson>
         <lombok_verson>1.16.22</lombok_verson>
-        <jackson_verson>2.9.10</jackson_verson>
+        <jackson_verson>2.11.0</jackson_verson>
         <jaxen_verson>1.1.6</jaxen_verson>
         <h2_version>1.4.197</h2_version>
         <netty-all.version>4.1.31.Final</netty-all.version>
