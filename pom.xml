@@ -28,7 +28,7 @@
 
     <properties>
         <fastJson_verson>1.2.47</fastJson_verson>
-        <dom4j_verson>2.1.1</dom4j_verson>
+        <dom4j_verson>2.1.3</dom4j_verson>
         <junit_verson>4.12</junit_verson>
         <lombok_verson>1.16.22</lombok_verson>
         <jackson_verson>2.9.10</jackson_verson>
