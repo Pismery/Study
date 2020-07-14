@@ -4,6 +4,9 @@ import com.pismery.study.dao.PersonRepository;
 import com.pismery.study.po.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -20,7 +23,11 @@ public class RequiredService {
     private PersonRepository personRepository;
 
     @Autowired
+    @Lazy
     private RequiredService self;
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
     /**
      * The nested transaction
@@ -67,9 +74,25 @@ public class RequiredService {
         Person person = self.findByNo(personNo);
         person.setName(name);
         personRepository.save(person);
-
     }
 
+
+    public void uploadWithDefaultMethod(String personNo, String name, String noExistNo) {
+        self.defaultMethod(personNo,name,noExistNo);
+    }
+
+    @Transactional(readOnly = false
+            , isolation = Isolation.READ_COMMITTED
+            , propagation = Propagation.REQUIRED
+            ,rollbackFor = Exception.class
+    )
+    public void defaultMethod(String personNo, String name, String noExistNo) {
+        Person person = self.findByNo(personNo);
+        person.setName(name);
+        personRepository.save(person);
+
+        findByNo(noExistNo);
+    }
 
     /**
      * For rollback test.

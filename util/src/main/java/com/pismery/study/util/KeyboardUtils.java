@@ -2,14 +2,15 @@ package com.pismery.study.util;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 public class KeyboardUtils {
 
     public static void main(String[] args) {
+        List<Object> collect = new ArrayList<>().stream().distinct().collect(Collectors.toList());
+
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int) screenSize.getWidth();
         int height = (int) screenSize.getHeight();

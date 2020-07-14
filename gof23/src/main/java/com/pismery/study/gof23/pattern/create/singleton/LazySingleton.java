@@ -4,6 +4,10 @@ public class LazySingleton {
     private volatile static LazySingleton singleton;
 
     private LazySingleton() {
+        // protect against instantiation via reflection
+        if(singleton != null) {
+            throw new IllegalStateException("Singleton already initialized");
+        }
     }
 
     public static LazySingleton getInstance() {

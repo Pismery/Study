@@ -25,7 +25,8 @@ spring:
       #org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
       naming.implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
 
-log.path: ./export/logs
+log:
+  path: ./export/logs
 logging:
   level:
     com.pismery.study.interceptor: debug

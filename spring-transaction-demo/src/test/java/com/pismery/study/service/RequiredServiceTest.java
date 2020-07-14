@@ -102,6 +102,18 @@ public class RequiredServiceTest {
         log.debug("");
     }
 
+    /**
+     * 5.
+     */
+    @Test(expected = RuntimeException.class)
+    public void senior5() {
+        log.debug("-------------------------------");
+        log.debug("uploadNoTransaction begin...");
+        service.uploadWithDefaultMethod("n2","updateName","n5");
+        log.debug("-------------------------------");
+        log.debug("");
+    }
+
 
     private Person buildPerson(String personNo,String name) {
         Person person = new Person();
