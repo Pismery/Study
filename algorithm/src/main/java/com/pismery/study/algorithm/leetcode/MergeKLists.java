@@ -1,7 +1,9 @@
 package com.pismery.study.algorithm.leetcode;
 
+import com.pismery.study.algorithm.bean.ListNode;
+import org.springframework.util.ObjectUtils;
+
 import java.util.Comparator;
-import java.util.Objects;
 import java.util.PriorityQueue;
 
 
@@ -26,7 +28,7 @@ public class MergeKLists {
      * 维持一个大小为 lists.length 的优先队列；每次将最小值取出，并将下一个值放入；直到所有值遍历完毕
      */
     public static ListNode solution1(ListNode[] lists) {
-        if (lists == null) {
+        if (ObjectUtils.isEmpty(lists)) {
             return null;
         }
         PriorityQueue<ListNode> pq = new PriorityQueue<>(lists.length, Comparator.comparingInt(n -> n.val));
@@ -55,28 +57,5 @@ public class MergeKLists {
         return result;
     }
 
-
-    static class ListNode {
-        int val;
-        MergeKLists.ListNode next;
-
-        public ListNode(int val) {
-            this.val = val;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            ListNode listNode = (ListNode) o;
-            return val == listNode.val &&
-                    Objects.equals(next, listNode.next);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(val, next);
-        }
-    }
 
 }

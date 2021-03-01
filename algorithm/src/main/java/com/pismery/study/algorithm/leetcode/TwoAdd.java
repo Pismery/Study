@@ -1,5 +1,7 @@
 package com.pismery.study.algorithm.leetcode;
 
+import com.pismery.study.algorithm.bean.ListNode;
+
 /**
  * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
  *
@@ -37,14 +39,5 @@ public class TwoAdd {
         return result.next;
     }
 
-
-    private static class ListNode {
-        private int val;
-        private ListNode next;
-
-        public ListNode(int val) {
-            this.val = val;
-        }
-    }
 
 }
