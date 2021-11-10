@@ -60,8 +60,7 @@ public class NumSubarrayProductLessThanK {
         int result = 0;
         if( k <= 1) return result;
 
-        int right = nums.length -1;
-        for(; right >= 0; right--) {
+        for(int right = nums.length -1; right >= 0; right--) {
             int current = nums[right];
 
             int left = right;
