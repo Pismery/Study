@@ -33,7 +33,7 @@
         <lombok_verson>1.16.22</lombok_verson>
         <jackson_verson>2.9.10</jackson_verson>
         <jaxen_verson>1.1.6</jaxen_verson>
-        <h2_version>1.4.197</h2_version>
+        <h2_version>2.1.210</h2_version>
         <netty-all.version>4.1.31.Final</netty-all.version>
         <powermock-api-mockito2.version>2.0.0-RC.4</powermock-api-mockito2.version>
     </properties>
