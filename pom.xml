@@ -24,6 +24,7 @@
         <module>spring-transaction-demo</module>
         <module>algorithm</module>
         <module>util</module>
+        <module>spring-webflux-demo</module>
     </modules>
 
     <properties>
