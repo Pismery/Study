@@ -25,6 +25,7 @@
         <module>algorithm</module>
         <module>util</module>
         <module>spring-webflux-demo</module>
+        <module>mapstruct-demo</module>
     </modules>
 
     <properties>
@@ -67,7 +68,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok_verson}</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 
