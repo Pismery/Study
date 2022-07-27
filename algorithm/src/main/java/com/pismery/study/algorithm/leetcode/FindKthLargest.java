@@ -1,6 +1,7 @@
 package com.pismery.study.algorithm.leetcode;
 
 import com.pismery.study.util.ExchangeUtils;
+import com.pismery.study.util.RandomUtils;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -44,7 +45,46 @@ public class FindKthLargest {
      * @enduml
      */
     public static int solution3(int[] nums, int k) {
-        return 1;
+        if (nums.length < k) {
+            return -1;
+        }
+
+        return findTopK(nums, 0, nums.length - 1, k);
     }
 
+    private static int findTopK(int[] nums, int begin, int end, int k) {
+        int result = -1;
+
+        int left = begin;
+        int right = end;
+        int pivot = RandomUtils.randomInt(left, right);
+
+        while (left < right) {
+            while (right == pivot || (nums[right] > nums[pivot] && left < right)) {
+                right--;
+            }
+            while (left == pivot || (nums[left] <= nums[pivot] && left < right)) {
+                left++;
+            }
+
+            ExchangeUtils.exchange(nums, left, right);
+
+            if (right == left) {
+                ExchangeUtils.exchange(nums, left, pivot);
+                if (left == nums.length - k) {
+                    result = nums[pivot];
+                } else if (left < k) {
+                    left++;
+                    right = end;
+                    pivot = RandomUtils.randomInt(left, right);
+                } else {
+                    left = begin;
+                    right--;
+                    pivot = RandomUtils.randomInt(left, right);
+                }
+            }
+        }
+
+        return result;
+    }
 }

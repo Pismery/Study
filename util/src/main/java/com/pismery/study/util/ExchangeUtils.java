@@ -7,20 +7,19 @@ public class ExchangeUtils {
 
     /**
      * Exchange by ^=
-     *
      * @param sources
-     * @param indexX
-     * @param indexY
+     * @param x
+     * @param y
      */
-    public static void exchange(int[] sources, int indexX, int indexY) {
-        AssertArgs(sources.length, indexX, indexY);
+    public static void exchange(int[] sources, int x, int y) {
+        AssertArgs(sources.length, x, y);
 
-        if (indexX == indexY) //because self ^ self == 0
+        if (x == y) //because self ^ self == 0
             return;
 
-        sources[indexX] ^= sources[indexY];
-        sources[indexY] ^= sources[indexX];
-        sources[indexX] ^= sources[indexY];
+        sources[x] ^= sources[y];
+        sources[y] ^= sources[x];
+        sources[x] ^= sources[y];
     }
 
     /**

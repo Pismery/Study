@@ -85,7 +85,7 @@
         <sift>
             <appender name="FILE-${threadGroupId}" class="ch.qos.logback.core.FileAppender">
                 <file>${USER_HOME}/sift/SIFT-${threadGroupId}.log</file>
-                <append>false</append>
+                <append>true</append>
                 <layout class="ch.qos.logback.classic.PatternLayout">
                     <pattern>%d [%thread] %level %mdc %logger{35} - %msg%n</pattern>
                 </layout>
@@ -95,5 +95,9 @@
 
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="ROLLING"/>
+        <appender-ref ref="ROLLFILE"/>
+        <appender-ref ref="SIFT"/>
     </root>
 </configuration>
