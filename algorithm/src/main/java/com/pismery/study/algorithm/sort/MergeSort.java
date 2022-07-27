@@ -1,4 +1,4 @@
-package com.pismery.study.structure.sort;
+package com.pismery.study.algorithm.sort;
 
 /**
  * Created by pismery on 2018-06-19.

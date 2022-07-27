@@ -1,4 +1,4 @@
-package com.pismery.study.structure.sort;
+package com.pismery.study.algorithm.sort;
 
 import java.util.Map;
 import java.util.Set;

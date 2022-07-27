@@ -1,4 +1,4 @@
-package com.pismery.study.structure.sort;
+package com.pismery.study.algorithm.sort;
 
 import com.pismery.study.util.RandomUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -11,51 +11,52 @@ import java.util.Arrays;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
- * Created by pismery on 2018-06-18.
+ * Created by pismery on 2018-06-10.
  */
 @Slf4j
-public class CountSortTest {
+public class ShellSortTest {
     @Rule
     public final ExpectedException expectedException = ExpectedException.none();
 
 
     @Test
-    public void countSortWithMap() {
+    public void shellSortTest() {
         int[] actual = RandomUtils.randomArrayNoRepeat(1, 2000, 100);
         log.info("Array: " + Arrays.toString(actual));
         int[] expect = Arrays.copyOf(actual, actual.length);
         Arrays.sort(expect);
 
-        CountSort.countSortWithMap(actual);
+        ShellSort.shellSort(actual);
 
         assertArrayEquals(expect, actual);
     }
 
     @Test
-    public void countSort() {
+    public void shellSortOptimization() {
         int[] actual = RandomUtils.randomArrayNoRepeat(1, 2000, 100);
         log.info("Array: " + Arrays.toString(actual));
         int[] expect = Arrays.copyOf(actual, actual.length);
         Arrays.sort(expect);
 
-        CountSort.countSort(actual);
+        ShellSort.shellSortOptimization(actual);
 
         assertArrayEquals(expect, actual);
     }
 
+
     @Test
-    public void countSortWithMap_Exception() {
+    public void shellSortTest_Exception() {
         expectedException.expect(RuntimeException.class);
         expectedException.expectMessage("NPE");
 
-        CountSort.countSortWithMap(null);
+        ShellSort.shellSort(null);
     }
 
     @Test
-    public void countSort_Exception() {
+    public void shellSortOptimization_Exception() {
         expectedException.expect(RuntimeException.class);
         expectedException.expectMessage("NPE");
 
-        CountSort.countSort(null);
+        ShellSort.shellSortOptimization(null);
     }
 }

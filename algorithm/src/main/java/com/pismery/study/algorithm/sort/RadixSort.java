@@ -1,4 +1,4 @@
-package com.pismery.study.structure.sort;
+package com.pismery.study.algorithm.sort;
 
 import lombok.extern.slf4j.Slf4j;
 

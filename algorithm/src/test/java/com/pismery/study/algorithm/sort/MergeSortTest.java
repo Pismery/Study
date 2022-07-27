@@ -1,4 +1,4 @@
-package com.pismery.study.structure.sort;
+package com.pismery.study.algorithm.sort;
 
 import com.pismery.study.util.RandomUtils;
 import lombok.extern.slf4j.Slf4j;

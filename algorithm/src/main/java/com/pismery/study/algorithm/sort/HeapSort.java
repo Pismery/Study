@@ -1,4 +1,4 @@
-package com.pismery.study.structure.sort;
+package com.pismery.study.algorithm.sort;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -61,7 +61,7 @@ public class HeapSort {
 
     public static void heapSort1(int[] sources) {
         int length = sources.length;
-        Heap heap = new HeapSort.Heap(length);
+        Heap heap = new Heap(length);
         for (int i = 0; i < length; i++) {
             heap.add(sources[i]);
         }
@@ -74,7 +74,7 @@ public class HeapSort {
 
     public static void heapSort2(int[] sources) {
         int length = sources.length;
-        Heap heap = new HeapSort.Heap(sources);
+        Heap heap = new Heap(sources);
 
         for (int i = length - 1; i >= 0; i--) {
             sources[i] = heap.pop();

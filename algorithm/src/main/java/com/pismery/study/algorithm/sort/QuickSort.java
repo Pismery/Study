@@ -1,4 +1,4 @@
-package com.pismery.study.structure.sort;
+package com.pismery.study.algorithm.sort;
 
 import java.util.Stack;
 
@@ -32,16 +32,16 @@ public class QuickSort {
             // 再次递归调用了quickSortThreeWay(source, 4, 5); 最终栈溢出；
             if (source[currentIndex] < benchmark) {
                 // ltIndex 先++ 后交换。 交换后currntIndex++;
-                exchage(source, ++ltIndex, currentIndex++);
+                exchange(source, ++ltIndex, currentIndex++);
             } else if (source[currentIndex] > benchmark) {
                 // gtIndex 先-- 后交换。 交换后currntIndex不用++;
                 // 因为后面的元素还是未检查的元素;
-                exchage(source, currentIndex, --gtIndex);
+                exchange(source, currentIndex, --gtIndex);
             } else {
                 currentIndex++;
             }
         }
-        exchage(source, beginIndex, ltIndex--);
+        exchange(source, beginIndex, ltIndex--);
         quickSortThreeWay(source, beginIndex, ltIndex);
         quickSortThreeWay(source, gtIndex, endIndex);
 
@@ -69,7 +69,7 @@ public class QuickSort {
                 left++;
             }
 
-            exchage(source, left, right);
+            exchange(source, left, right);
         }
         //将基准与最终位置交换；使得左边均小于基准，右边均大于基准
         source[beginIndex] = source[left];
@@ -114,7 +114,7 @@ public class QuickSort {
                 }
                 if (right == left)
                     continue;
-                exchage(source, left, right);
+                exchange(source, left, right);
             }
             source[beginIndex] = source[left];
             source[left] = benchmark;
@@ -160,7 +160,7 @@ public class QuickSort {
                         right--;
                         continue;
                     }
-                    exchage(source, left, right);
+                    exchange(source, left, right);
                     left++;
                     flag = false;
                 } else { //基准在右边
@@ -168,7 +168,7 @@ public class QuickSort {
                         left++;
                         continue;
                     }
-                    exchage(source, left, right);
+                    exchange(source, left, right);
                     right--;
                     flag = true;
                 }
@@ -207,7 +207,7 @@ public class QuickSort {
                     right--;
                     continue;
                 }
-                exchage(source, left, right);
+                exchange(source, left, right);
                 left++;
                 flag = false; //交换后基准在右边
             } else { //基准在右边
@@ -216,7 +216,7 @@ public class QuickSort {
                     left++;
                     continue;
                 }
-                exchage(source, left, right);
+                exchange(source, left, right);
                 right--;
                 flag = true; //交换后基准在左边
             }
@@ -227,7 +227,7 @@ public class QuickSort {
     }
 
 
-    private static void exchage(int[] source, int left, int right) {
+    private static void exchange(int[] source, int left, int right) {
         if (left >= right)
             return;
         source[left] ^= source[right];
